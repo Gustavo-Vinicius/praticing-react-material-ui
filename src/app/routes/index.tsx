@@ -1,26 +1,26 @@
-import { Button } from '@mui/material';
-import { House, Star } from 'phosphor-react';
+import { House } from 'phosphor-react';
 import { useEffect } from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom';
+import { Dashboard } from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 
 export const AppRoutes = () => {
 
-    const { toggleDrawerOpen, setDrawerOptions } = useDrawerContext();
+    const { setDrawerOptions } = useDrawerContext();
 
     useEffect(() => {
         setDrawerOptions([
             {
                label : 'Página inicial',
                path : '/pagina-inicial',
-               icon : <House/>,
+               icon : <House weight='fill'/>,
             }
         ])
     }, []);
 
     return(
         <Routes>
-            <Route path='/pagina-inicial' element = {<Button variant='contained' color='primary' onClick={toggleDrawerOpen}>Toggle Drawer</Button>}/>
+            <Route path='/pagina-inicial' element = {<Dashboard/>}/>
             <Route path='*' element = {<Navigate to = '/pagina-inicial'/>}/>
         </Routes>
     );
