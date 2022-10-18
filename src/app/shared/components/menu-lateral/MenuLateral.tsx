@@ -1,10 +1,10 @@
 import { Avatar, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material";
 import { Box } from '@mui/system';
-import { Atom, House } from "phosphor-react";
+import { Atom, House, Moon } from "phosphor-react";
 import React, { ReactNode } from "react";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import SidImg from '../../assets/sid.jpg'
-import { useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 
 interface IMenuLateralProps {
     children: React.ReactNode
@@ -45,6 +45,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
     const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+    const { toggleTheme } = useAppThemeContext();
 
     return (
         <>
@@ -67,6 +68,16 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
                                     onClick={smDown ? toggleDrawerOpen : undefined}
                                 />
                             ))}
+                        </List>
+                    </Box>
+                    <Box>
+                        <List component="nav">
+                            <ListItemButton alignItems="center" onClick={toggleTheme} >
+                                <ListItemIcon>
+                                    <Moon weight='fill'/>
+                                </ListItemIcon>
+                                <ListItemText primary="Alterar tema"/>
+                            </ListItemButton>
                         </List>
                     </Box>
                 </Box>
