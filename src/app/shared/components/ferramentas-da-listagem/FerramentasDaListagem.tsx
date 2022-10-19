@@ -2,7 +2,7 @@ import { Button, Paper, TextField, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
 import { Plus } from "phosphor-react";
 
-interface IBarraDeFerramentasProps {
+interface IFerramentasDeListagemProps {
     textoDaBusca?: string;
     mostrarInputBusca?: boolean;
     aoMudarTextDeBusca?: (novoTexto: string) => void;
@@ -11,7 +11,7 @@ interface IBarraDeFerramentasProps {
     aoCLicarEmNovo?: () => void;
 }
 
-export const BarraDeFerramentas: React.FC<IBarraDeFerramentasProps> = ({
+export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
     textoDaBusca = '',
     mostrarInputBusca = false,
     aoMudarTextDeBusca,
