@@ -39,7 +39,6 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
                     value={textoDaBusca}
                     placeholder='Pesquisar...'
                     onChange={(e) => aoMudarTextDeBusca?.(e.target.value)}
-
                 />
             )}
             <Box flex={1} display='flex' justifyContent='end'>
