@@ -72,6 +72,7 @@ const create = async (dados : Omit<IDetalhePessoa, 'id'>): Promise<number | Erro
  };
 
 const updateById = async (id: number, dados: IDetalhePessoa): Promise<void | Error> => {
+    
     try {
 
         await Api.put<IDetalhePessoa>(`/pessoas/${id}`)
