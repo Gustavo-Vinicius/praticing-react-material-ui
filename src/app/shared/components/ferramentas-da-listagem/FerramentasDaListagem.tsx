@@ -2,6 +2,8 @@ import { Button, Paper, TextField, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
 import { Plus } from "phosphor-react";
 
+import { Enviroment } from "../../environment";
+
 interface IFerramentasDeListagemProps {
     textoDaBusca?: string;
     mostrarInputBusca?: boolean;
@@ -37,7 +39,7 @@ export const FerramentasDeListagem: React.FC<IFerramentasDeListagemProps> = ({
                 <TextField
                     size='small'
                     value={textoDaBusca}
-                    placeholder='Pesquisar...'
+                    placeholder={Enviroment.INPUT_DE_BUSCA}
                     onChange={(e) => aoMudarTextDeBusca?.(e.target.value)}
                 />
             )}
