@@ -1,10 +1,10 @@
-import { Buildings, House } from 'phosphor-react';
+import { House, Users } from 'phosphor-react';
 import { useEffect } from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { 
     Dashboard,
-    ListagemDeCidade
+    ListagemDePessoas
  } from '../pages';
 
 export const AppRoutes = () => {
@@ -19,9 +19,9 @@ export const AppRoutes = () => {
                icon : <House weight='fill'/>,
             },
             {
-               label : 'Cidades',
-               path : '/cidades',
-               icon : <Buildings  weight='fill'/>,
+               label : 'Pessoas',
+               path : '/pessoas',
+               icon : <Users weight='fill'/>,
             }
         ])
     }, []);
@@ -29,7 +29,7 @@ export const AppRoutes = () => {
     return(
         <Routes>
             <Route path='/pagina-inicial' element = {<Dashboard/>}/>
-            <Route path='/cidades' element = {<ListagemDeCidade/>}/>
+            <Route path='/pessoas' element = {<ListagemDePessoas/>}/>
             {/* <Route path='/cidades/detalhe/:id' element = {<Dashboard/>}/> */}
 
             <Route path='*' element = {<Navigate to = '/pagina-inicial'/>}/>
