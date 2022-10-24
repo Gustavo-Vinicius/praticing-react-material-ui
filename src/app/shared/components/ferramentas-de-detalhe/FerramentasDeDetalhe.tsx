@@ -133,11 +133,11 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
             )}
 
             {(
-                mostrarBotaoVoltar && 
-                (mostarBotaoNovo || mostarBotaoApagar || mostrarBotaoSalvar || mostrarBotaoSalvarEVoltar )
-                ) && (
+                mostrarBotaoVoltar &&
+                (mostarBotaoNovo || mostarBotaoApagar || mostrarBotaoSalvar || mostrarBotaoSalvarEVoltar)
+            ) && (
                     <Divider variant='middle' orientation='vertical' />
-                ) 
+                )
             }
 
             {(mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando) && (
@@ -146,6 +146,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
                     disableElevation
                     variant='outlined'
                     startIcon={<ArrowCircleLeft />}
+                    onClick={aoClicarEmVoltar}
                 >
                     <Typography variant='button' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
                         Voltar
