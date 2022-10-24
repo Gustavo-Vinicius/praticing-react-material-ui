@@ -41,18 +41,18 @@ const getAll = async (page = 1, filter = ''): Promise<TPessoaComTotalCount | Err
     }
 };
 
-const getById = async (id: number): Promise<any> => {
+const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
     try {
 
         const { data } = await Api.get(`/pessoas${id}`)
 
         if (data) return data
 
-        return new Error('Erro ao listar os registros.')
+        throw new Error('Erro ao listar os registros.')
 
     } catch (error) {
         console.error(error)
-        return new Error((error as { mensage: string }).mensage || 'Erro ao listar os registros.')
+        throw new Error((error as { mensage: string }).mensage || 'Erro ao listar os registros.')
     }
 };
 

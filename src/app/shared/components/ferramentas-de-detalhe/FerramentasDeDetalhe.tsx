@@ -103,6 +103,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
                     disableElevation
                     variant='outlined'
                     startIcon={<TrashSimple />}
+                    onClick={aoClicarEmApagar}
                 >
                     <Typography variant='button' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
                         Apagar

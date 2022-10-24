@@ -13,12 +13,6 @@
       "nomeCompleto": "Monalisa Gama"
     },
     {
-      "id": 4,
-      "email": "fe@gmail.com",
-      "CidadeId": 5,
-      "nomeCompleto": "Fernanda Milanes"
-    },
-    {
       "id": 5,
       "email": "allan@gmail.com",
       "CidadeId": 4,
