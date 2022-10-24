@@ -68,6 +68,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
                     disableElevation
                     variant='contained'
                     startIcon={<FileArrowDown />}
+                    onClick={aoClicarEmSalvar}
                 >
                     <Typography variant='button' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
                         Salvar
