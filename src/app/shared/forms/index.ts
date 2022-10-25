@@ -1,4 +1,5 @@
 export * from './VTextField'
+export * from './IVFormsErrors'
 export * from './useVForm'
 export * from './VScope'
 export * from './VForm'

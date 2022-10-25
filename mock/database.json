@@ -78,5 +78,15 @@
       "CidadeId": 7,
       "nomeCompleto": "Paulo Gonsalves"
     }
+  ],
+  "cidades": [
+    {
+      "nome": "Araguaína",
+      "id": 1
+    },
+    {
+      "nome": "Rio de Janeiro",
+      "id": 2
+    }
   ]
 }

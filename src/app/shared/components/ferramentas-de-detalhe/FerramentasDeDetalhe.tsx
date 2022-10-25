@@ -86,6 +86,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
                     disableElevation
                     variant='outlined'
                     startIcon={<FileArrowDown />}
+                    onClick={aoClicarEmSalvarEFechar}
                 >
                     <Typography variant='button' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
                         Salvar e voltar
@@ -122,6 +123,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
                     disableElevation
                     variant='outlined'
                     startIcon={<Plus />}
+                    onClick={aoClicarEmNovo}
                 >
                     <Typography variant='button' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
                         {textoBotaoNovo}

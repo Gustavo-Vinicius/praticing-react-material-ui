@@ -4,19 +4,19 @@ import { IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableC
 import { PencilSimple, Trash } from "phosphor-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import { IListagemPessoa, PessoaService } from "../../shared/services/api/pessoas/PessoaService";
+import { IListagemCidade, CidadeService } from "../../shared/services/api/cidades/CidadeService";
 import { FerramentasDeListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { Enviroment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
 
-export const ListagemDePessoas: React.FC = () => {
+export const ListagemDeCidades: React.FC = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const { debounce } = useDebounce();
     const navigate = useNavigate();
 
-    const [rows, setRows] = useState<IListagemPessoa[]>([])
+    const [rows, setRows] = useState<IListagemCidade[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [totalCount, setTotalCount] = useState(0)
 
@@ -31,7 +31,7 @@ export const ListagemDePessoas: React.FC = () => {
     useEffect(() => {
         setIsLoading(true)
         debounce(() => {
-            PessoaService.getAll(pagina, busca)
+            CidadeService.getAll(pagina, busca)
                 .then((result) => {
                     setIsLoading(false)
                     if (result instanceof Error) {
@@ -49,7 +49,7 @@ export const ListagemDePessoas: React.FC = () => {
     const handleDelete = (id: number) => {
 
         if (confirm('Realmente deseja apagar')) {
-            PessoaService.deleteById(id)
+            CidadeService.deleteById(id)
                 .then(result => {
                     if (result instanceof Error) {
                         alert(result.message)
@@ -67,13 +67,13 @@ export const ListagemDePessoas: React.FC = () => {
 
     return (
         <LayoutBaseDePagina
-            titulo='Listagem de pessoas'
+            titulo='Listagem de Cidades'
             barraDeFerramentas={
                 <FerramentasDeListagem
                     mostrarInputBusca
                     textoDaBusca={busca}
                     textoBotaoNovo='Nova'
-                    aoCLicarEmNovo={() => navigate('/pessoas/detalhe/nova')}
+                    aoCLicarEmNovo={() => navigate('/cidades/detalhe/nova')}
                     aoMudarTextDeBusca={texto => setSearchParams({ busca: texto, pagina: '1' }, { replace: true })}
                 />
             }
@@ -83,8 +83,7 @@ export const ListagemDePessoas: React.FC = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell width={100}>Ações</TableCell>
-                            <TableCell>Nome Completo</TableCell>
-                            <TableCell>Email</TableCell>
+                            <TableCell>Nome </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -94,12 +93,11 @@ export const ListagemDePessoas: React.FC = () => {
                                     <IconButton size='small' onClick={() => handleDelete(rows.id)}>
                                         <Trash weight='fill' />
                                     </IconButton>
-                                    <IconButton size='small' onClick={() => navigate(`/pessoas/detalhe/${rows.id}`)}>
+                                    <IconButton size='small' onClick={() => navigate(`/Cidades/detalhe/${rows.id}`)}>
                                         <PencilSimple weight='fill' />
                                     </IconButton>
                                 </TableCell>
-                                <TableCell>{rows.nomeCompleto}</TableCell>
-                                <TableCell>{rows.email}</TableCell>
+                                <TableCell>{rows.nome}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
